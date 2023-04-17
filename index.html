@@ -135,6 +135,192 @@
             from {margin-left: -15vw;}
             to {margin-left: 100vw;}
         }
+
+        .zoomOutDown {
+            -webkit-animation-name: zoomOutDown;
+            animation-name: zoomOutDown;
+        }
+
+        @-webkit-keyframes zoomOutDown {
+        40% {
+            opacity: 1;
+            -webkit-transform: scale3d(0.475, 0.475, 0.475) translate3d(0, -60px, 0);
+            transform: scale3d(0.475, 0.475, 0.475) translate3d(0, -60px, 0);
+            -webkit-animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+            animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+        }
+
+        to {
+            opacity: 0;
+            -webkit-transform: scale3d(0.1, 0.1, 0.1) translate3d(0, 2000px, 0);
+            transform: scale3d(0.1, 0.1, 0.1) translate3d(0, 2000px, 0);
+            -webkit-transform-origin: center bottom;
+            transform-origin: center bottom;
+            -webkit-animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1);
+            animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1);
+        }
+        }
+
+        @keyframes zoomOutDown {
+        40% {
+            opacity: 1;
+            -webkit-transform: scale3d(0.475, 0.475, 0.475) translate3d(0, -60px, 0);
+            transform: scale3d(0.475, 0.475, 0.475) translate3d(0, -60px, 0);
+            -webkit-animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+            animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+        }
+
+        to {
+            opacity: 0;
+            -webkit-transform: scale3d(0.1, 0.1, 0.1) translate3d(0, 2000px, 0);
+            transform: scale3d(0.1, 0.1, 0.1) translate3d(0, 2000px, 0);
+            -webkit-transform-origin: center bottom;
+            transform-origin: center bottom;
+            -webkit-animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1);
+            animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1);
+        }
+        }
+/*******************************************/
+
+
+.rollOut {
+  -webkit-animation-name: rollOut;
+  animation-name: rollOut;
+}
+
+@-webkit-keyframes rollOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+    -webkit-transform: translate3d(100%, 0, 0) rotate3d(0, 0, 1, 120deg);
+    transform: translate3d(100%, 0, 0) rotate3d(0, 0, 1, 120deg);
+  }
+}
+
+@keyframes rollOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+    -webkit-transform: translate3d(100%, 0, 0) rotate3d(0, 0, 1, 120deg);
+    transform: translate3d(100%, 0, 0) rotate3d(0, 0, 1, 120deg);
+  }
+}
+
+.fadeOutUp {
+  -webkit-animation-name: fadeOutUp;
+  animation-name: fadeOutUp;
+}
+
+@-webkit-keyframes fadeOutUp {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+  }
+}
+
+@keyframes fadeOutUp {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+  }
+}
+
+
+
+/**************************************/
+
+
+.bounceOutRight {
+  -webkit-animation-name: bounceOutRight;
+  animation-name: bounceOutRight;
+}
+
+@-webkit-keyframes bounceOutRight {
+  20% {
+    opacity: 1;
+    -webkit-transform: translate3d(-20px, 0, 0);
+    transform: translate3d(-20px, 0, 0);
+  }
+
+  to {
+    opacity: 0;
+    -webkit-transform: translate3d(2000px, 0, 0);
+    transform: translate3d(2000px, 0, 0);
+  }
+}
+
+@keyframes bounceOutRight {
+  20% {
+    opacity: 1;
+    -webkit-transform: translate3d(-20px, 0, 0);
+    transform: translate3d(-20px, 0, 0);
+  }
+
+  to {
+    opacity: 0;
+    -webkit-transform: translate3d(2000px, 0, 0);
+    transform: translate3d(2000px, 0, 0);
+  }
+}
+
+
+/****************************/
+.rotateOutDownRight {
+  -webkit-animation-name: rotateOutDownRight;
+  animation-name: rotateOutDownRight;
+}
+
+@-webkit-keyframes rotateOutDownRight {
+  from {
+    -webkit-transform-origin: right bottom;
+    transform-origin: right bottom;
+    opacity: 1;
+  }
+
+  to {
+    -webkit-transform-origin: right bottom;
+    transform-origin: right bottom;
+    -webkit-transform: rotate3d(0, 0, 1, -45deg);
+    transform: rotate3d(0, 0, 1, -45deg);
+    opacity: 0;
+  }
+}
+
+@keyframes rotateOutDownRight {
+  from {
+    -webkit-transform-origin: right bottom;
+    transform-origin: right bottom;
+    opacity: 1;
+  }
+
+  to {
+    -webkit-transform-origin: right bottom;
+    transform-origin: right bottom;
+    -webkit-transform: rotate3d(0, 0, 1, -45deg);
+    transform: rotate3d(0, 0, 1, -45deg);
+    opacity: 0;
+  }
+}
+
+
+
+
     </style>
 </head>
 <body>
@@ -161,14 +347,17 @@
         let nameList = document.getElementById("names");
         function processInput(){
             console.log("Hello there")
-            const name = document.getElementById("inputName").value;
-            let col = document.getElementById("inputColor").value;
+            const inputName = document.getElementById("inputName");
+            const inputColor = document.getElementById("inputColor");
+            const name = inputName.value;
+            let col = inputColor.value;
             if(col=="pink"){
                 col = "deeppink"
             }
             let nameToList = document.createElement("li");
             nameToList.appendChild(document.createTextNode(name));
-            const rand = Math.floor(Math.random() * 10) + 1;
+            // const rand = Math.floor(Math.random() * 10) + 1;
+            const rand = 1;
             if(rand%2==0){
                 // vertical
                 const marg = vert*90;
@@ -194,8 +383,31 @@
                 nameToList.setAttribute("style", "margin-top:"+marg+"px;color:"+col+";");
                 horz++;
             }
-
-            document.getElementById("inputName").value = "";
+            switch (rand) {
+                case 1||2:
+                    console.log("hello again")
+                inputName.classList.add("zoomOutDown");
+                setTimeout(inputName.classList.remove("zoomOutDown"), 1000)
+                    break;
+                case 3||4:
+                nameToList.classList.add("rollOut");
+                rollOut,fadeOutUp,bounceOutRight
+                    break;
+                case 5||6:
+                nameToList.classList.add("fadeOutUp");
+                rollOut,fadeOutUp,bounceOutRight
+                    break;
+                case 7||8:
+                nameToList.classList.add("bounceOutRight");
+                rollOut,fadeOutUp,bounceOutRight
+                    break;
+                default:
+                    console.log("no good!")
+                nameToList.classList.add("rotateOutDownRight");
+                rollOut,fadeOutUp,bounceOutRight
+                    break;
+            }
+            inputName.value = "";
             document.getElementById("inputColor").value = "";
             nameList.appendChild(nameToList);
             count++;
