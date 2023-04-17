@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DynaPuff">
+    <style>
+        body{
+            background-color: bisque;
+            font-family: 'DynaPuff', Arial, Helvetica, sans-serif;
+            overflow: hidden;
+        }
+        #wrapper{
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: column;
+            width: 100vw;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+            font-size: 3em;
+            position:absolute;
+            text-align: center;
+            color: darkolivegreen;
+        }
+        h1{
+            margin: 0;
+            margin-bottom: 20px;
+        }
+        h2{
+            font-size: 0.7em;
+        }
+        #theForm{
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+        }
+        input{
+            width: 500px;
+            background: none;
+            color: darkolivegreen;
+            font-size: 0.6em;
+            font-weight: 400;
+            border: none;
+            border-bottom: 3px solid darkolivegreen;
+            font-family: 'DynaPuff', Arial, Helvetica, sans-serif;
+            text-align: center;
+            margin-bottom: 20px;
+            border-radius: 20px;
+        }
+        input:focus{
+            outline: none;
+        }
+        #inputName{
+            margin-bottom: 30px;
+        }
+        #formButtons{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            
+        }
+        button{
+            height: 50px;
+            width: 100%;
+            font-size: 0.8em;
+            background-color: transparent;
+            border: none;
+            font-family: 'DynaPuff', Arial, Helvetica, sans-serif;
+            color:blueviolet;
+        }
+        #welcome{
+            font-size: 1.2em;
+            transition-duration: 1s;
+        }
+        #welcome:hover{
+            font-size: 1.5em;
+            color: darkcyan;
+        }
+        #reset{
+            margin-top:20px;
+            font-size: 0.4em;
+            transition-duration: 1s;
+        }
+        #reset:hover{
+            font-size: 0.6em;
+            color: red;
+        }
+        #names{
+            position: absolute;
+        }
+        li{
+            position: absolute;
+            font-size: 2em;
+            list-style-type:none;
+            animation-name: up;
+            animation-duration: 20s;
+            animation-iteration-count: infinite;
+        }
+        .flowLeft{
+            animation-name: left;
+            animation-duration: 20s;
+            animation-iteration-count: infinite;
+        }
+        .flowRight{
+            animation-name: right;
+            animation-duration: 20s;
+            animation-iteration-count: infinite;
+        }
+        .flowUp{
+            animation-name: up;
+            animation-duration: 20s;
+            animation-iteration-count: infinite;
+        }
+        .flowDown{
+            animation-name: down;
+            animation-duration: 20s;
+            animation-iteration-count: infinite;
+        }
+        @keyframes down {
+            from {margin-top: -12vh;}
+            to {margin-top: 100vh;}
+        }
+        @keyframes up {
+            from {margin-top: 100vh;}
+            to {margin-top: -12vh;}
+        }
+        @keyframes left {
+            from {margin-left: 100vw;}
+            to {margin-left: -15vw;}
+        }
+        @keyframes right {
+            from {margin-left: -15vw;}
+            to {margin-left: 100vw;}
+        }
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <h1 id="hello">Hello Foundations!!</h1>
+        <form id="theForm">
+            <input type="text" id="inputName" placeholder="What's your name?"/>
+            <input type="text" id="inputColor" placeholder="What's your favourite colour?"/>
+            <div id="formButtons">
+                <button type="button" id="welcome" onclick="processInput()">Welcome</button>
+                <button type="button" id ="reset" onclick="resetForm()">Start Again!</button>
+            </div>
+        </form>
+    </div>
+    <div>
+        <ul id="names"> 
+        </ul>
+    </div>
+
+    <script>
+        let count=1;
+        let vert=1;
+        let horz=1;
+        let nameList = document.getElementById("names");
+        function processInput(){
+            console.log("Hello there")
+            const name = document.getElementById("inputName").value;
+            let col = document.getElementById("inputColor").value;
+            if(col=="pink"){
+                col = "deeppink"
+            }
+            let nameToList = document.createElement("li");
+            nameToList.appendChild(document.createTextNode(name));
+            const rand = Math.floor(Math.random() * 10) + 1;
+            if(rand%2==0){
+                // vertical
+                const marg = vert*90;
+                if(rand>5){
+                    // up
+                    nameToList.classList.add("flowUp");
+                }else{
+                    // down
+                    nameToList.classList.add("flowDown");
+                }
+                nameToList.setAttribute("style", "margin-left:"+marg+"px;color:"+col+";");
+                vert++;
+            }else{
+                // horizontal
+                const marg = horz*50;
+                if(rand>5){
+                    // left
+                    nameToList.classList.add("flowLeft");
+                }else{
+                    // right
+                    nameToList.classList.add("flowRight");
+                }
+                nameToList.setAttribute("style", "margin-top:"+marg+"px;color:"+col+";");
+                horz++;
+            }
+
+            document.getElementById("inputName").value = "";
+            document.getElementById("inputColor").value = "";
+            nameList.appendChild(nameToList);
+            count++;
+        }
+        function resetForm(){
+            document.getElementById("names").innerHTML = '<ul></ul>';
+        }
+    </script>
+</body>
+</html>
