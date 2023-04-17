@@ -141,7 +141,7 @@
             animation-name: zoomOutDown;
         }
 
-        @-webkit-keyframes zoomOutDown {
+        /*@-webkit-keyframes zoomOutDown {
         40% {
             opacity: 1;
             -webkit-transform: scale3d(0.475, 0.475, 0.475) translate3d(0, -60px, 0);
@@ -159,7 +159,7 @@
             -webkit-animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1);
             animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1);
         }
-        }
+        }*/
 
         @keyframes zoomOutDown {
         40% {
@@ -384,14 +384,14 @@
                 horz++;
             }
             switch (rand) {
-                case 1||2:
-                    console.log("hello again")
-                inputName.classList.add("zoomOutDown");
-                setTimeout(inputName.classList.remove("zoomOutDown"), 1000)
+                case 1:
+                    console.log("hello yet again")
+                    inputName.classList.add("rollOut");
+                    setTimeout(inputName.classList.remove("rollOut"), 1000)
                     break;
                 case 3||4:
-                nameToList.classList.add("rollOut");
-                rollOut,fadeOutUp,bounceOutRight
+                    nameToList.classList.add("rollOut");
+                    rollOut,fadeOutUp,bounceOutRight
                     break;
                 case 5||6:
                 nameToList.classList.add("fadeOutUp");
