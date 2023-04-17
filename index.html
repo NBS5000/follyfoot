@@ -383,30 +383,30 @@
                 nameToList.setAttribute("style", "margin-top:"+marg+"px;color:"+col+";");
                 horz++;
             }
+            let animationEffect;
             switch (rand) {
                 case 1:
                     console.log("hello yet again")
-                    inputName.classList.add("rollOut");
-                    setTimeout(inputName.classList.remove("rollOut"), 1000)
+                    animationEffect="fadeOutUp";
                     break;
                 case 3||4:
-                    nameToList.classList.add("rollOut");
-                    rollOut,fadeOutUp,bounceOutRight
+                    animationEffect="zoomOutDown";
                     break;
                 case 5||6:
-                nameToList.classList.add("fadeOutUp");
-                rollOut,fadeOutUp,bounceOutRight
+                    animationEffect="bounceOutRight";
                     break;
                 case 7||8:
-                nameToList.classList.add("bounceOutRight");
-                rollOut,fadeOutUp,bounceOutRight
+                    animationEffect="rotateOutDownRight";
                     break;
                 default:
-                    console.log("no good!")
-                nameToList.classList.add("rotateOutDownRight");
-                rollOut,fadeOutUp,bounceOutRight
+                    animationEffect="rollOut";
                     break;
             }
+            inputName.classList.add(animationEffect);
+            setTimeout(inputName.classList.remove(animationEffect), 1000)
+
+
+
             inputName.value = "";
             document.getElementById("inputColor").value = "";
             nameList.appendChild(nameToList);
