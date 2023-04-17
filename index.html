@@ -141,7 +141,7 @@
             animation-name: zoomOutDown;
         }
 
-        /*@-webkit-keyframes zoomOutDown {
+        @-webkit-keyframes zoomOutDown {
         40% {
             opacity: 1;
             -webkit-transform: scale3d(0.475, 0.475, 0.475) translate3d(0, -60px, 0);
@@ -159,7 +159,7 @@
             -webkit-animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1);
             animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1);
         }
-        }*/
+        }
 
         @keyframes zoomOutDown {
         40% {
@@ -356,8 +356,8 @@
             }
             let nameToList = document.createElement("li");
             nameToList.appendChild(document.createTextNode(name));
-            // const rand = Math.floor(Math.random() * 10) + 1;
-            const rand = 1;
+            const rand = Math.floor(Math.random() * 10) + 1;
+            
             if(rand%2==0){
                 // vertical
                 const marg = vert*90;
@@ -383,7 +383,7 @@
                 nameToList.setAttribute("style", "margin-top:"+marg+"px;color:"+col+";");
                 horz++;
             }
-            let animationEffect;
+            /*let animationEffect;
             switch (rand) {
                 case 1:
                     console.log("hello more again")
@@ -402,8 +402,9 @@
                     animationEffect="rollOut";
                     break;
             }
+            console.log(animationEffect)
             inputName.classList.add(animationEffect);
-            setTimeout(inputName.classList.remove(animationEffect), 1000)
+            setTimeout(inputName.classList.remove(animationEffect), 1000)*/
 
 
 
