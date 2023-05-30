@@ -23,7 +23,7 @@
             font-size: 3em;
             position:absolute;
             text-align: center;
-            color: darkolivegreen;
+            color: darkgreen;
         }
         h1{
             margin: 0;
@@ -37,7 +37,11 @@
             justify-content: center;
             flex-direction: column;
         }
-        input{
+        #color{
+          display:flex;
+          align-items: center;
+        }
+        #inputName, #color{
             width: 500px;
             background: none;
             color: darkolivegreen;
@@ -328,7 +332,11 @@
         <h1 id="hello">Hello Foundations!!</h1>
         <form id="theForm">
             <input type="text" id="inputName" placeholder="What's your name?"/>
-            <input type="text" id="inputColor" placeholder="What's your favourite colour?"/>
+            <div id="color">
+              <h2 style="width:75%;">What's your favourite colour?</h2>
+              <input type="color" id="inputColor" style="width:10%;"/>
+
+            </div>
             <div id="formButtons">
                 <button type="button" id="welcome" onclick="processInput()">Welcome</button>
                 <button type="button" id ="reset" onclick="resetForm()">Start Again!</button>
@@ -342,8 +350,8 @@
 
     <script>
         let count=1;
-        let vert=1;
-        let horz=1;
+        let vert=0;
+        let horz=0;
         let nameList = document.getElementById("names");
         function processInput(){
             console.log("Hello there")
@@ -356,7 +364,7 @@
             }
             let nameToList = document.createElement("li");
             nameToList.appendChild(document.createTextNode(name));
-            const rand = Math.floor(Math.random() * 10) + 1;
+            const rand = Math.floor(Math.random() * 10);
             
             if(rand%2==0){
                 // vertical
